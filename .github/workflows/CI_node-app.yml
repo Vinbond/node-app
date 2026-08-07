@@ -1,1 +1,25 @@
+name: CI
+
+on: 
+    workflow_dispatch
+
+jobs:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout
+          uses: actions/checkout@v4
+        
+        - name: install node js
+          uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+        - name: wiat for the application to boot
+          run: sleep 5
+        
+        -name: check the health
+         run: curl -I "http://localhost:3000/health" || exit 1
+         
+            
+
+
 
