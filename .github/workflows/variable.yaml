@@ -1,0 +1,29 @@
+name: Variables
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: 'run-environment'
+                required: true
+                default: 'test'
+                type: choice
+                options:
+                 - dev
+                 - prod
+                 - test
+            version:
+                description: 'Apllication Version'
+                required: true
+                default: "v1.0.0"
+
+jobs:
+    show-the-variable:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "printing the variables"
+              run: |
+                echo ${{inputs.environment}}
+                echo ${{inputs.version}}
+
+
