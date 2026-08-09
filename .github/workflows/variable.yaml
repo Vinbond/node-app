@@ -17,13 +17,17 @@ on:
                 required: true
                 default: "v1.0.0"
 
+env: 
+    type_V: "Tier 1"
+
 jobs:
     show-the-variable:
         runs-on: ubuntu-latest
         steps:
             - name: "printing the variables"
-              run: |
+              run: | # using | this symbol we can use multiple line run 
                 echo ${{inputs.environment}}
                 echo ${{inputs.version}}
+                echo "global $type_V"
 
 
