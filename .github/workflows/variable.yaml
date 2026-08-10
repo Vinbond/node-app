@@ -30,4 +30,14 @@ jobs:
                 echo ${{inputs.version}}
                 echo "global $type_V"
 
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+         - name: "printing vsrisbles"
+           run: |
+                echo "the secret is ${{secrets.FIRST_SECRETE}}"
+                echo "the secret is ${{vars.FIRST_VARIABLE}}"
+
+
+
 
