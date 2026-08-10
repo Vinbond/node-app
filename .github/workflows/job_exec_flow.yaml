@@ -1,0 +1,20 @@
+name: Sequensial job
+
+on: [push]
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First
+              run: echo "Hello"
+    job2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Second job
+              run: echo "Second Job"
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Third Job
+              run: echo "Third job"
