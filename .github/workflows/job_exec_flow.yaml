@@ -7,15 +7,16 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: First
-              run: echo "Hello"
+              run: echo exit 1
     job2:
-        needs: job1
+        needs: job1 #job 1 must complete
+        if: ${{always()}} # job1 fail it will execute independently use always()
         runs-on: ubuntu-latest
         steps:
             - name: Second job
               run: echo "Second Job"
     job3:
-        needs: job2
+        needs: job2 #job 2 must complete
         runs-on: ubuntu-latest
         steps:
             - name: Third Job
