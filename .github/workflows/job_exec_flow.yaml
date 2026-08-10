@@ -9,11 +9,13 @@ jobs:
             - name: First
               run: echo "Hello"
     job2:
+        needs: job1
         runs-on: ubuntu-latest
         steps:
             - name: Second job
               run: echo "Second Job"
     job3:
+        needs: job2
         runs-on: ubuntu-latest
         steps:
             - name: Third Job
