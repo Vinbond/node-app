@@ -16,7 +16,7 @@ jobs:
             - name: Third Job
               run: echo "Third job"
     job3:
-        needs: job1 #job 1 must 
+        needs: job2 #job 1 must 
         runs-on: ubuntu-latest
         steps:
             - name: third
