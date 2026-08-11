@@ -1,0 +1,31 @@
+name: Selective jobs 
+
+on: 
+    workflow_dispatch:
+        inputs:
+            job-run:
+                description: selective jobs
+                required: true
+                type: choice
+                options: [job1,job2,all]
+
+jobs:
+    job1:
+        if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
+        runs-on: ubuntu-latest
+        steps:
+            - name: First
+              run: exit 1
+    job2:
+        
+        if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Third Job
+              run: echo "Third job"
+    job3:
+        if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
+        runs-on: ubuntu-latest
+        steps:
+            - name: third
+              run: echo "this is third"
