@@ -24,7 +24,7 @@ jobs:
             - name: Third Job
               run: echo "Third job"
     job3:
-        if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
+        if: ${{inputs.job-run=='job3' || inputs.job-run=='all'}}
         runs-on: ubuntu-latest
         steps:
             - name: third
