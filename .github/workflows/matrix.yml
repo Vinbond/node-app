@@ -5,10 +5,11 @@ on:
 
 jobs:
     job:
-        runs-on: ubuntu-latest
+        runs-on: ${{matrix.os}}
         strategy:
             matrix:
-              version: [18,20]
+              version: [18,20] #Two jobs run 2 versions 
+              os: [ubuntu,windows] #each os runs 2 jobs U2 W2
         steps:
             - name: install node
               uses: actions/setup-node@v6
