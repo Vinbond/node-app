@@ -7,7 +7,7 @@ on:
                 description: selective jobs
                 required: true
                 type: choice
-                options: [job1,job2,all]
+                options: [job1,job2,job3,all]
 
 jobs:
     job1:
@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: First
-              run: exit 1
+              run: echo "Hello job1"
     job2:
         
         if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
