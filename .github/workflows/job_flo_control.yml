@@ -15,10 +15,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: First
-              run: echo "Hello job1"
+              run: echo "Hello job2"
     job2:
         
-        if: ${{inputs.job-run=='job1' || inputs.job-run=='all'}}
+        if: ${{inputs.job-run=='job2' || inputs.job-run=='all'}}
         runs-on: ubuntu-latest
         steps:
             - name: Third Job
