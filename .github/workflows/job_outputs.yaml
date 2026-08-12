@@ -14,7 +14,8 @@ jobs:
 
          - name: set a variables #this step data will store in job1_output
            id: step2
-           run : echo "msg=its id defined " >> $GITHUB_OUTPUT
+           run : echo "msg=This is job1 and step 2 output " >> $GITHUB_OUTPUT
+
          - name: get the op from step
            id: step3
            run: echo "output from the variable ${{steps.step1.outputs.msg}}" 
