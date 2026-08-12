@@ -1,4 +1,4 @@
-name: datasend1to many
+name: data send 1 to many
 
 on: workflow_dispatch
 
