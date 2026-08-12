@@ -1,0 +1,14 @@
+name: datasend1to many
+
+on: workflow_dispatch
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+         - name: set a variable
+           id: step1
+           run: echo "msg=its id defined " >> $GITHUB_OUTPUT
+         - name: get the op from step
+           run: echo "outputh from the variable ${{steps.step1.outputs.msg}}" 
+
