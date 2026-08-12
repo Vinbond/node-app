@@ -5,10 +5,23 @@ on: workflow_dispatch
 jobs:
     job1:
         runs-on: ubuntu-latest
+        outputs:
+            job1_outputs: "${{steps.step2.outputs.msg}}" # step 2 generated data op we are storing in job1_outputs  
         steps:
          - name: set a variable
            id: step1
            run: echo "msg=its id defined " >> $GITHUB_OUTPUT
-         - name: get the op from step
-           run: echo "outputh from the variable ${{steps.step1.outputs.msg}}" 
 
+         - name: set a variables #this step data will store in job1_output
+           id: step2
+           run : echo "msg=its id defined " >> $GITHUB_OUTPUT
+         - name: get the op from step
+           id: step3
+           run: echo "output from the variable ${{steps.step1.outputs.msg}}" 
+   
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps:
+            - name : This is data from job1 to job2
+              run: echo "${{needs.job1.outputs.job1_outputs}}"
