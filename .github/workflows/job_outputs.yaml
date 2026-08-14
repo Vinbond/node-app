@@ -26,3 +26,8 @@ jobs:
         steps:
             - name : This is data from job1 to job2
               run: echo "${{needs.job1.outputs.job1_outputs}}"
+    job3:
+      runs-on: ubuntu-latest
+      steps:
+        - name: this is job 3
+          run: echo "job three"
