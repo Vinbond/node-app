@@ -30,4 +30,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: this is job 3
-          run: echo "job three"
+          run: echo "job three 3"
