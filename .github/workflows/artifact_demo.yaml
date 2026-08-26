@@ -3,21 +3,21 @@ on: push
 
 
 jobs:
-    # job1:
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: create file
-    #           run: |   #folder creating
-    #             mkdir build folder 
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: create file
+              run: |   #folder creating
+                mkdir build folder 
                 
-    #             echo "hello" > build/info.txt 
-    #         - name: upload the build folder # click on URL in github action file will download in windows
-    #           uses: actions/upload-artifact@v7
-    #           with:
-    #               name: build-upload
-    #               path: build/
+                echo "hello" > build/info.txt 
+            - name: upload the build folder # click on URL in github action file will download in windows
+              uses: actions/upload-artifact@v7
+              with:
+                  name: build-upload
+                  path: build/
     job2:
-        # needs: job1
+        needs: job1
         runs-on: ubuntu-latest 
         steps: 
             - name: download artifact
