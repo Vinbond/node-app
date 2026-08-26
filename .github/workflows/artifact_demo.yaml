@@ -23,8 +23,8 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v8
               with: 
-                  run-id: 
-                  github-token: ${{secrets.FIRST_TOCKEN}}
+                #   run-id: 
+                #   github-token:
                   name: build-upload
                   path: ./build
             - name: display the content 
