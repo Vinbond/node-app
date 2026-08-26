@@ -1,0 +1,37 @@
+name: artifact
+on: push
+
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: create file
+              run: |
+                mkdir build
+                echo "hello" > build/info.txt
+            - name: upload the build folder
+              uses: actions/upload-artifact@v7
+              with:
+                  name: build-upload
+                  path: build/
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps: 
+            - name: download artifact
+              uses: actions/download-artifact@v8
+              with: 
+                  name: build-upload
+                  path: ./build
+            - name: display the content 
+              run: |
+               ls -lart ./build
+               cat ./build/info.txt
+
+
+
+                  
+
+
+           
