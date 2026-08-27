@@ -13,7 +13,7 @@ jobs:
             key: my-cache-v1
          - name: time consuming activity
            if: steps.cache.outputs.cache-hit != 'true'
-           run:
+           run: |
             echo "no cache yet"
             sleep 25
             mkdir data
