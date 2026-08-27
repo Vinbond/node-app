@@ -1,0 +1,29 @@
+name: caching
+
+on: push
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+         - name: cache
+           id: cache
+           uses: actions/cache@v6
+           with:
+            path: data
+            key: my-cache-v1
+         - name: time consuming activity
+           if: steps.cache.outputs.cache-hit != 'true'
+           run:
+            echo "no cache yet"
+            sleep 25
+            mkdir data
+            echo "Some data" > data/file.txt
+            echo "slow operation task"
+
+         - name: read the file
+           run: cat data/info.txt
+
+        
+
+
