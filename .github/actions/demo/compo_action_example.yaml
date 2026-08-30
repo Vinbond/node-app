@@ -26,5 +26,5 @@ runs:
     - name: Set Output
       id: set_output
       run: |
-        echo "result=success" >> "$GITHUB_OUTPUT"
+        echo "result=success" >> $GITHUB_OUTPUT
       shell: bash

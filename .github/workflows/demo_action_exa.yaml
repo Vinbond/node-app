@@ -7,9 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Run Demo Composite Action
         uses: ./.github/actions/demo  
         with:
           who-to-greet: "Virat Kohli"
+
+
+        
+      - name: Run Demo Composite Action with different input
+        run: echo "Output ${{ steps.demo.outputs.demo-output }}"
