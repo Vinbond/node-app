@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Run Demo Composite Action
-        uses: ./.github/actions/demo_action
+        uses: ./.github/actions/demo-action
         with:
           who-to-greet: "Virat Kohli"
       - name: Run Demo Composite Action with different input
-        run: echo "Output ${{ steps.demo_action.outputs.demo_output }}"
+        run: echo "Output ${{ steps.demo_action.outputs.demo-output }}"
