@@ -3,15 +3,15 @@ name: Demo Composite Action
 on: workflow_dispatch
 
 jobs:
-  demo_action:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Run Demo Composite Action
-        uses: ./.github/actions/demo/compo_action_example.yaml
+        uses: ./.github/actions/demo
         with:
           who-to-greet: "Virat Kohli"
       - name: Run Demo Composite Action with different input
-        run: echo "Output ${{ steps.demo_action.outputs.demo-output }}"
+        run: echo "Output ${{ steps.demo.outputs.demo-output }}"
