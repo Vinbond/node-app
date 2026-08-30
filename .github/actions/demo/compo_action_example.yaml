@@ -1,0 +1,31 @@
+name: "Demo  Action"
+
+description: "This is a demo composite action to greet someone "
+
+
+
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+
+outputs:
+  demo-output:
+    description: "Result from this custom action"
+    value: ${{ steps.set_output.outputs.result}}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set Greeting
+      id: set_output
+      run: |
+        echo "Hello ${{ inputs.who-to-greet }}."
+      shell: bash
+      
+    - name: Set Output
+      id: set_output
+      run: |
+        echo "result =success" >> $GITHUB_OUTPUT
+      shell: bash

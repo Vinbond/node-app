@@ -1,0 +1,17 @@
+name: Demo Composite Action
+
+on: workflow_dispatch
+
+jobs:
+  demo_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Run Demo Composite Action
+        uses: ./.github/actions/demo_action
+        with:
+          who-to-greet: "Virat Kohli"
+      - name: Run Demo Composite Action with different input
+        run: echo "Output ${{ steps.demo_action.outputs.demo_output }}"
