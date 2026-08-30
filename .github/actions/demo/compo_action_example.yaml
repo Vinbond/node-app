@@ -13,18 +13,18 @@ inputs:
 outputs:
   demo-output:
     description: "Result from this custom action"
-    value: ${{ steps.set_output.outputs.result}}
+    value: ${{steps.set_output.outputs.result}}
 
 runs:
   using: "composite"
   steps:
     - name: Set Greeting
       run: |
-        echo "Hello ${{ inputs.who-to-greet }}."
+        echo "Hello ${{inputs.who-to-greet}}."
       shell: bash
       
     - name: Set Output
       id: set_output
       run: |
-        echo "result=success" >> $GITHUB_OUTPUT
+        echo "result=success" >> "$GITHUB_OUTPUT"
       shell: bash
