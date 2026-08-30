@@ -1,6 +1,6 @@
 name: Sequensial job
 
-on: [push]
+on: workflow_dispatch #[push]
 
 jobs:
     job1:
